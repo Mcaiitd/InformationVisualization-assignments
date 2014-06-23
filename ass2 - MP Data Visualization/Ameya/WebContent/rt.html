@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+     <script src="C:\\Users\\Sony\\Documents\\Workstation_Eclipse\\Ameya\\maindata.js"></script>
+<script>
+var se;
+var se2;
+var se3;
+var p1;
+var p2;
+var p3;
+function caller()
+{
+	p1 = se.charAt(0);
+	p2 = se2.charAt(0);
+	p3 = se3.charAt(0);
+	Write(p1,p2,p3);
+}
+//////////////////////////
+/////////////////////////////////////
+///////////////////////////////
+/////////////To write in file
+function Write(x1,x2,x3)
+{
+var Scr = new ActiveXObject("Scripting.FileSystemObject");
+var CTF = Scr.CreateTextFile("C:\\Users\\Sony\\Documents\\Workstation_Eclipse\\Ameya\\WebContent\\Gyan.txt", true);
+CTF.WriteLine(x1);
+CTF.WriteLine(x2);
+CTF.WriteLine(x3);
+CTF.Close();
+}
+/////////////////////////////
+////////////////////////////
+
+
+function favBrowser()
+{
+var mylist=document.getElementById("myList");
+var mylist2=document.getElementById("myList2");
+var mylist3=document.getElementById("myList3");
+se=mylist.options[mylist.selectedIndex].text;
+se2=mylist2.options[mylist2.selectedIndex].text;
+se3=mylist3.options[mylist3.selectedIndex].text;
+//document.write(se2);
+}
+</script>
+</head>
+
+<body>
+<form><fieldset>
+<legend style="font-size:200%">Fill the Details</legend>
+<h2>Select option 1:</h2>
+<select id="myList" onchange="favBrowser()">
+  <option></option>
+  <option>1.Age</option>
+  <option>2.Debates</option>  
+  <option>3.Private member bills</option>
+  <option>4.Questions</option>
+  <option>5.Attendance</option>
+  </select><br><br><br>
+  <h2>Select option 2:</h2>
+<select id="myList2" onchange="favBrowser()">
+  <option></option>
+  <option>1.Age</option>
+  <option>2.Debates</option>  
+  <option>3.Private member bills</option>
+  <option>4.Questions</option>
+  <option>5.Attendance</option>
+  </select><br><br><br>
+  <h2>Select option 3:</h2>
+<select id="myList3" onchange="favBrowser()">
+  <option></option>
+  <option>1.MP</option>
+  <option>2.Party</option>  
+  <option>3.State</option>
+  
+  </select><br><br><br>
+  <input type="button" onclick="caller()" value="Confirm">
+<p></p></fieldset>
+</form>
+<br><br><br><br>
+<a href="C:\\Users\\Sony\\Documents\\Workstation_Eclipse\\Ameya\\WebContent\\index.html" style="font-size:200%">Show Chart!</a> <br><br>
+</body>
+
+</html>

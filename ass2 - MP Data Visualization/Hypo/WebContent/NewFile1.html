@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script src="C:\\Users\\Sony\\Documents\\Workstation_Eclipse\\Hypo\\function.js"></script>
+<script>
+var se;
+var se2;
+var se3;
+var p1;
+var p2;
+var p3;
+function caller()
+{
+	p1 = se.charAt(0);
+	
+	Write(p1);
+}
+//////////////////////////
+/////////////////////////////////////
+///////////////////////////////
+/////////////To write in file
+function Write(x1)
+{
+	var Scr = new ActiveXObject("Scripting.FileSystemObject");
+	var CTF = Scr.CreateTextFile("C:\\Users\\Sony\\Documents\\Workstation_Eclipse\\Hypo\\WebContent\\Gyan.txt", true);
+	CTF.WriteLine(x1);
+	CTF.Close();
+}
+/////////////////////////////
+////////////////////////////
+
+
+function favBrowser()
+{
+	var mylist=document.getElementById("myList");
+	se=mylist.options[mylist.selectedIndex].text;
+
+}
+</script>
+</head>
+
+<body>
+<form>
+Select option 1:
+<select id="myList" onchange="favBrowser()">
+  <option></option>
+  <option>0.age and attendance</option>
+  <option>1.state and attendance</option>  
+  <option>2.political party and attendance</option>
+  <option>3.state and attendance</option>
+  <option>4.education and attendance</option>
+  <option>5.gender and education</option>
+  
+  
+  </select>
+<p></p>
+</form>
+<a href="C:\Users\Sony\Documents\Workstation_Eclipse\Hypo\WebContent\NewFile.html">Generate</a> 
+<input type="button" onclick="caller()" value="Confirm">
+</body>
+
+</html>

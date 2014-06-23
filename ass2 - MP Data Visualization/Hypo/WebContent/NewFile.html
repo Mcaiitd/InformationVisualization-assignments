@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+     <script src="C:\\Users\\Sony\\Documents\\Workstation_Eclipse\\Hypo\\function.js"></script>
+    
+    <script type="text/javascript">
+   
+    rem();
+	var x=make_acc();
+  	google.load("visualization", "1", {packages:["corechart"]});
+  	
+  
+ 
+  	google.setOnLoadCallback(drawChart);
+
+      function drawChart()
+      {
+    	
+    	  //google.setOnLoadCallback(drawChart);
+        var data = google.visualization.arrayToDataTable(x);
+		var title1= maindata[0][0];
+		var title2= maindata[0][1];
+        var options = {
+          title: title1+" vs "+ title2,
+          hAxis: {title: title1, minValue: 0, maxValue: 15},
+          vAxis: {title: title2, minValue: 0, maxValue: 15},
+          pointSize:5,
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+      
+      
+  
+      	
+      	
+        	google.setOnLoadCallback(drawChart);
+      	
+        	
+      
+      
+      
+     
+    </script>
+  </head>
+  <body>
+  
+
+    
+   
+    
+      	 <script type="text/javascript">
+    
+    
+    </script>
+    
+    <div id="chart_div" style="width: 1100px; height: 1100px;"></div>
+  </body>
+</html>

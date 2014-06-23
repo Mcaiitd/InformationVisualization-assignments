@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="maindata.js"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      function drawChart() {
+    	var data = google.visualization.arrayToDataTable(bear);
+  	 	var options;
+  		options = {
+  	          title: 'Statewise chart of Leading Political Party Fraction',
+  	          vAxis: {title: 'Fraction',  titleTextStyle: {color: 'red'}}
+  	       		};
+  		
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      	}
+
+      function hey() 
+      {
+    	drawChart();
+      }  
+    </script>
+  </head>
+  <body>
+  <script type="text/javascript">
+  function add(state,a,i)
+  {
+	  bear[i]=[state,a];
+  }
+  Read();
+
+
+  var bear =new Array();
+  bear[0] = ['State', 'Fraction by Leading Political Party'];
+
+  var i=0;var ss;var wher;
+  while(i<=35)
+	  {
+	  var stateparty=new Array();
+	  var j=1;var str = s_data[i][0];
+	  var len = s_data[i].length;var count=0;
+	  while(j<len)
+		  {
+		  k = s_data[i][j];	
+		  ss= maindata[k][6];
+	  
+		  var leng = stateparty.length;
+		  var ff=0;wher=-1;
+		  while(ff<leng)
+			  {
+			  if (stateparty[ff][0]==ss){wher=ff;break;}
+			  ff++;
+			  }
+		  
+		  if(wher!=-1) {stateparty[wher][1]++;}
+		  else{
+			  stateparty[count] = new Array();
+			  stateparty[count][0]=ss;
+			  stateparty[count][1]=1;
+			  count++;
+		  }
+			j++;
+		  }
+	  //document.write(""+str+"->"+stateparty);
+
+	  var len = stateparty.length;
+	  var cnt=0;var maxind=0;var max=1;
+	  var hw=0;
+	  while(hw<len)
+		  {
+		  cnt = cnt + stateparty[hw][1];
+		  if(stateparty[hw][1]>max){max = stateparty[hw][1];maxind=hw;}
+		  hw++;
+		  }
+	 // document.write("cnt->"+cnt+"  max->"+max);
+	  var a1 = max/cnt;
+	  add(str+"("+stateparty[maxind][0]+")",a1,i+1);
+	  i++;
+	  }
+
+   </script>
+       <input id="b1" type="button" onclick="hey()" value="Generate "  />
+   
+    <div id="chart_div" style="width: 2000px; height: 1000px;"></div>
+    </body>
+</html>

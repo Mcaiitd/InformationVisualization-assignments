@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+     <script src="C:\\Users\\Sony\\Documents\\Workstation_Eclipse\\Ameya\\maindata.js"></script>
+    
+    <script type="text/javascript">
+   
+  	
+  	google.load("visualization", "1", {packages:["corechart"]});
+  	rem();
+	var x=make_acc();
+  
+ 
+  	google.setOnLoadCallback(drawChart);
+
+      function drawChart()
+      {
+    	
+    	  //google.setOnLoadCallback(drawChart);
+        var data = google.visualization.arrayToDataTable(x);
+		var title1= maindata[0][get1()];
+		var title2= maindata[0][get2()];
+        var options = {
+          title: title1+" vs "+ title2,
+          hAxis: {title: title1, minValue: 0, maxValue: 15},
+          vAxis: {title: title2, minValue: 0, maxValue: 15},
+          pointSize:10,
+          backgroundColor:'#FFF5EE',
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+      
+      
+  
+      	
+      	
+        	google.setOnLoadCallback(drawChart);
+      	
+        	
+      
+      
+      
+     
+    </script>
+  </head>
+ <body style="background-color:#B0C4DE;">
+  
+
+    
+   
+    
+      	 <script type="text/javascript">
+    
+    
+    </script>
+     
+    <div id="chart_div" style="width: 1500px; height: 800px; align:center;"></div>
+  </body>
+</html>
